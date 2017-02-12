@@ -9,8 +9,8 @@ import { WeddingApi } from '../../providers/wedding-api'
   providers: [WeddingApi]
 })
 
-export class HomePage {	
-	weddingId: any; 
+export class HomePage {
+	weddingId: any;
   	constructor(public navCtrl: NavController, public push: Push, private weddingApi: WeddingApi,
   		public toastCtrl: ToastController, public loadingCtrl: LoadingController) {
 	    this.push.register().then((t: PushToken) => {
@@ -30,7 +30,7 @@ export class HomePage {
   		loading.present();
 
 		if (this.push.token != undefined) {
-			this.weddingApi.registerToken(this.weddingId, "tryyy").subscribe(
+			this.weddingApi.registerToken(this.weddingId, this.push.token.token).subscribe(
 				data => {
 					loading.dismiss();
 					var error = data["error"];
@@ -56,11 +56,11 @@ export class HomePage {
 			case "INVALID_ENTRY":
 				errorMessage = "We do not recognize this Wedding ID. Please try again.";
 				break;
-				
+
 			case "CONNECTION_ERROR":
-				errorMessage = "The server is unreachable. Please try again."	
-				break;	
-			
+				errorMessage = "The server is unreachable. Please try again."
+				break;
+
 			case "UNKNOWN":
 			default:
 				errorMessage = "Error occurred. Please try again.";
@@ -72,6 +72,6 @@ export class HomePage {
      	duration: 3000,
      	position:"top"
     	});
-    	toast.present();	
+    	toast.present();
 	}
 }
