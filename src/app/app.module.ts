@@ -1,8 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { Storage } from '@ionic/storage';
+import { RegistrationPage } from '../pages/register/register';
+import { HomePage } from '../pages/home/home';
+import { EventsPage } from '../pages/events/events';
+import { UserRegistrationData } from '../providers/userRegistration-data';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -25,7 +29,9 @@ const cloudSettings: CloudSettings = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    RegistrationPage,
+    HomePage,
+    EventsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -34,8 +40,10 @@ const cloudSettings: CloudSettings = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    RegistrationPage,
+    HomePage,
+    EventsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [Storage, UserRegistrationData, {provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
