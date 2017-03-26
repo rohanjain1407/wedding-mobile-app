@@ -1,0 +1,26 @@
+<ion-header>
+<ion-navbar color="primary">
+  <ion-title>Wedding Events</ion-title>
+</ion-navbar>
+ 
+</ion-header>
+
+<ion-slides pager>
+
+  <ion-slide id="slide" *ngFor="let event of events">
+    <div >
+    <h2>Event Name</h2>
+    <label>{{event.eventName}}</label>
+
+    <h2>Venue</h2>
+    <label>{{event.venue}}</label>
+
+    <h2>Time</h2>
+    <label>{{event.dueTime}}</label>
+
+     <h2>Description</h2>
+    <label>{{event.description}}</label>
+    </div>
+
+  </ion-slide>
+</ion-slides>

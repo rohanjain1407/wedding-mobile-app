@@ -27,7 +27,7 @@ export class RegistrationPage {
 		});
 	}
 
-	register() {
+	registerUser() {
 		
 		//Set loader to end in 10 seconds. Stop it manually by calling dismiss
 		let loading = this.loadingCtrl.create({
