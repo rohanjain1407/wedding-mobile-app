@@ -5,6 +5,7 @@ import { EventsPage } from '../../pages/events/events';
 import { DeviceTokenApi } from '../../providers/deviceToken-api';
 import { WeddingEventApi } from '../../providers/weddingEvent-api';
 import { UserRegistrationData } from '../../providers/userRegistration-data';
+import { UserDetailsPage } from '../../pages/user-details/user-details';
 
 @Component({
 	selector: 'page-home',
@@ -16,6 +17,7 @@ export class HomePage {
 
 	menuItems = [
 	{ "name": "Events" },
+	{ "name": "Setup Profile"},
 	{ "name": "Unregister" }
 	];
 	
@@ -24,6 +26,10 @@ export class HomePage {
 		public deviceTokenApi: DeviceTokenApi,
 		public weddingEventApi: WeddingEventApi,
 		public userData: UserRegistrationData) {
+
+		this.userData.getUserDetails().then((value) => {
+			alert(value["name"]);
+		});
 	}
 
 	menuItemClicked(item) {
@@ -31,6 +37,10 @@ export class HomePage {
 		switch(name) {
 			case "Events":
 			this.loadEvents();
+			break;
+
+			case "Setup Profile":
+			this.navCtrl.push(UserDetailsPage);
 			break;
 
 			case "Unregister":

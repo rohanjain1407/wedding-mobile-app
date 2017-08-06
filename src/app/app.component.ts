@@ -24,7 +24,7 @@ export class MyApp {
       Splashscreen.hide();
 
       this.userData.isRegistered().then((value) => {
-        this.rootPage = value == true ? HomePage : RegistrationPage;
+        this.rootPage = (value == true) ? HomePage : RegistrationPage;
       });
     });
   }

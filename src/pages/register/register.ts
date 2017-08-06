@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController, ToastController, NavController } from 'ionic-angular';
 import { Push, PushToken} from '@ionic/cloud-angular';
-import { HomePage } from '../../pages/home/home';
+import { UserDetailsPage } from '../../pages/user-details/user-details';
 import { DeviceTokenApi } from '../../providers/deviceToken-api';
 import { UserRegistrationData } from '../../providers/userRegistration-data';
 
@@ -45,7 +45,7 @@ export class RegistrationPage {
 					console.log(data);
 					this.userData.setDeviceToken(this.push.token.token);
 					this.userData.setWeddingId(this.weddingId);
-					this.navCtrl.setRoot(HomePage);  
+					this.navCtrl.setRoot(UserDetailsPage);  
 				},
 				err => {
 					loading.dismiss();
