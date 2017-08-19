@@ -15,20 +15,22 @@ import { UserDetailsPage } from '../../pages/user-details/user-details';
 
 export class HomePage {
 
+	userName : string;
+
 	menuItems = [
 	{ "name": "Events" },
 	{ "name": "Setup Profile"},
 	{ "name": "Unregister" }
 	];
-	
+
 	constructor(
-		public navCtrl: NavController, 
+		public navCtrl: NavController,
 		public deviceTokenApi: DeviceTokenApi,
 		public weddingEventApi: WeddingEventApi,
 		public userData: UserRegistrationData) {
 
 		this.userData.getUserDetails().then((value) => {
-			alert(value["name"]);
+			this.userName = value["name"];
 		});
 	}
 
@@ -59,7 +61,7 @@ export class HomePage {
 					this.navCtrl.push(EventsPage, data);
 				},
 				err => {
-					console.log("Error occurred getting wedding events", err);  
+					console.log("Error occurred getting wedding events", err);
 				}
 			);
 		});
@@ -74,7 +76,7 @@ export class HomePage {
 			this.deviceTokenApi.deleteToken(deviceToken).subscribe(
 				data => {
 					this.userData.removeWeddingId();
-					this.navCtrl.setRoot(RegistrationPage);  
+					this.navCtrl.setRoot(RegistrationPage);
 				},
 				err => {
 					//Not removing from storage in this case

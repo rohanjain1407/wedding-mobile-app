@@ -12,6 +12,10 @@ import { UserRegistrationData } from '../../providers/userRegistration-data';
 })
 
 export class RegistrationPage {
+	//Needed for a bug in android where background 
+	//reduces in height when keyboard opens up.
+	shouldHeight = document.body.clientHeight + 'px' ;
+	
 	weddingId: any;
   	constructor(
   		public navCtrl: NavController, 
