@@ -4,23 +4,29 @@
 </ion-navbar>
  
 </ion-header>
-
-<ion-slides pager>
-
-  <ion-slide id="eventSlide" *ngFor="let event of events">
-    <div >
-    <h2>Event Name</h2>
-    <label>{{event.eventName}}</label>
-
-    <h2>Venue</h2>
-    <label>{{event.venue}}</label>
-
-    <h2>Time</h2>
-    <label>{{event.dueTime}}</label>
-
-     <h2>Description</h2>
-    <label>{{event.description}}</label>
-    </div>
-
-  </ion-slide>
-</ion-slides>
+<ion-content class="cards-bg">
+  <ion-card id="eventSlide" *ngFor="let event of events">
+    <!-- TODO need to validate if image exist or not-->
+    <img src='assets/img/events/{{event.eventName}}.jpg' />
+  
+    <ion-card-content>
+      <ion-card-title>
+        {{event.eventName}}
+      </ion-card-title>
+      <p>
+        {{event.description}}
+      </p>
+    </ion-card-content>
+    
+    <ion-row padding>
+      <ion-col> 
+        <ion-icon name='time'></ion-icon>
+        {{event.dueTime}}
+      </ion-col>
+      <ion-col text-center>
+        <ion-icon name='locate'></ion-icon>
+        {{event.venue}}
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
