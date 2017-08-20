@@ -12,17 +12,17 @@ import { UserRegistrationData } from '../../providers/userRegistration-data';
 })
 
 export class RegistrationPage {
-	//Needed for a bug in android where background 
+	//Needed for a bug in android where background
 	//reduces in height when keyboard opens up.
 	shouldHeight = document.body.clientHeight + 'px' ;
-	
+
 	weddingId: any;
   	constructor(
-  		public navCtrl: NavController, 
-  		public push: Push, 
-  		public deviceTokenApi: DeviceTokenApi, 
-  		public toastCtrl: ToastController, 
-  		public loadingCtrl: LoadingController, 
+  		public navCtrl: NavController,
+  		public push: Push,
+  		public deviceTokenApi: DeviceTokenApi,
+  		public toastCtrl: ToastController,
+  		public loadingCtrl: LoadingController,
   		public userData : UserRegistrationData) {
 
 	    this.push.register().then((t: PushToken) => {
@@ -32,7 +32,7 @@ export class RegistrationPage {
 	}
 
 	registerUser() {
-		
+
 		//Set loader to end in 10 seconds. Stop it manually by calling dismiss
 		let loading = this.loadingCtrl.create({
     	content: 'Please wait...',
@@ -49,7 +49,7 @@ export class RegistrationPage {
 					console.log(data);
 					this.userData.setDeviceToken(this.push.token.token);
 					this.userData.setWeddingId(this.weddingId);
-					this.navCtrl.setRoot(UserDetailsPage);  
+					this.navCtrl.setRoot(UserDetailsPage);
 				},
 				err => {
 					loading.dismiss();
@@ -69,7 +69,7 @@ export class RegistrationPage {
 			case "INVALID_REQUEST":
 				errorMessage = "An error has occured. Please enter a Wedding ID or check your network connection";
 				break;
-				
+
 			case "RECORD_NOT_FOUND":
 				errorMessage = "We do not recognize this Wedding ID. Please try again.";
 				break;

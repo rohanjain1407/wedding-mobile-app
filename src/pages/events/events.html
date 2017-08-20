@@ -2,13 +2,13 @@
 <ion-navbar color="primary">
   <ion-title>Wedding Events</ion-title>
 </ion-navbar>
- 
+
 </ion-header>
 <ion-content class="cards-bg">
   <ion-card id="eventSlide" *ngFor="let event of events">
     <!-- TODO need to validate if image exist or not-->
     <img src='assets/img/events/{{event.eventName}}.jpg' />
-  
+
     <ion-card-content>
       <ion-card-title>
         {{event.eventName}}
@@ -17,9 +17,9 @@
         {{event.description}}
       </p>
     </ion-card-content>
-    
+
     <ion-row padding>
-      <ion-col> 
+      <ion-col>
         <ion-icon name='time'></ion-icon>
         {{event.dueTime}}
       </ion-col>

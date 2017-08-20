@@ -1,0 +1,68 @@
+<ion-header>
+<ion-navbar color="primary">
+  <ion-title>User Details</ion-title>
+</ion-navbar>
+ 
+</ion-header>
+<ion-content>
+<ion-slides pager>
+
+  <ion-slide id="userDetailslide">
+    <ion-list>
+      <ion-label>Enter your name here</ion-label>
+    
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="txtName"></ion-input>
+      </ion-item>
+      
+      <button ion-button color="light" icon-right (click)="slideNext()">
+        Next
+        <ion-icon name='arrow-forward'></ion-icon>
+      </button>
+    
+    </ion-list>
+  </ion-slide>
+
+  <ion-slide>
+    <ion-label>Whose Side Are You On? </ion-label>
+      <ion-list radio-group [(ngModel)]="radSide">
+        <ion-item>
+          <ion-label>Ladkewaale</ion-label>
+          <ion-radio checked="true" value="groom"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Ladkiwaale</ion-label>
+          <ion-radio value="bride"></ion-radio>
+        </ion-item>
+      
+        <button ion-button color="light" icon-right (click)="slideNext()">
+          Next
+          <ion-icon name='arrow-forward'></ion-icon>
+        </button>
+      </ion-list>
+  </ion-slide>
+
+  <ion-slide>
+  
+       <ion-label>Profile Picture</ion-label>
+  <img [src]="profileImage" style="width: 40%">
+
+
+<ion-buttons>
+      <button ion-button color="light" icon-right 
+      (click)="presentActionSheet()">
+        Select Image  
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+
+     <button ion-button color="light" icon-right (click) = "submitForm()">
+          Next
+          <ion-icon name='arrow-forward'></ion-icon>
+        </button>
+  </ion-slide>
+
+
+</ion-slides>
+</ion-content>
