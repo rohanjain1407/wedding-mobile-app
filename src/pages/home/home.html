@@ -12,12 +12,21 @@
 </ion-header>
 
 <ion-menu id="main-menu" [content]="mainmenu" persistent="true">
-  <ion-content>
+
+  <ion-content class="menu-contents">
     <ion-list>
-    <div id="nameHeader">Hi {{userName}}</div>
-    <button ion-item *ngFor="let item of menuItems" (click)="menuItemClicked(item)">
+    <div padding class="name-header">Welcome Rohan</div>
+    
+    <div class="item">
+
+      <button ion-item *ngFor="let item of menuItems" (click)="menuItemClicked(item)">
+      <ion-icon class="pad-right" name="{{item.icon}}"></ion-icon>
       {{item.name}}
-    </button>
+
+      </button>
+      
+    </div>
+    
     </ion-list>
   </ion-content>
 </ion-menu>

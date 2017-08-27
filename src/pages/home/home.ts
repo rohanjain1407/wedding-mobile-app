@@ -18,9 +18,11 @@ export class HomePage {
 	userName : string;
 
 	menuItems = [
-	{ "name": "Events" },
-	{ "name": "Setup Profile"},
-	{ "name": "Unregister" }
+	{ "name": "Home", "icon":"home" },
+	{ "name": "Events", "icon":"football" },
+	{ "name": "Setup Profile","icon":"person"},
+	{ "name": "About Us","icon":"information-circle"},
+	{ "name": "Unregister","icon":"exit" }
 	];
 
 	constructor(
@@ -37,6 +39,7 @@ export class HomePage {
 	menuItemClicked(item) {
 		var name = item["name"];
 		switch(name) {
+			
 			case "Events":
 			this.loadEvents();
 			break;

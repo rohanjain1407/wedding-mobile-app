@@ -21,6 +21,9 @@ declare var cordova: any;
 
 export class UserDetailsPage {
 
+	//Needed for a bug in android where background
+	//reduces in height when keyboard opens up.
+	shouldHeight = document.body.clientHeight + 'px' ;
 	txtName: any;
 	radSide: any;
 	user: User;
