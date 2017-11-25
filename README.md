@@ -18,3 +18,9 @@
       
       3. Run using __`ionic serve`__ -> Click 'Get All Weddings'  
       This should hit the service and get list of wedding in the db.
+      
+#Compatible Version
+  1. npm - 3.10.10
+  2. node - v6.11.3
+  3. ionic - 2.2.1
+  4. cordova - 6.5.0
