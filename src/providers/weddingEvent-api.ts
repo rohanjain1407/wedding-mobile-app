@@ -4,7 +4,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 
-var LOCALHOST = '192.168.0.21';
+var LOCALHOST = '192.168.0.58';
 
 @Injectable()
 export class WeddingEventApi {

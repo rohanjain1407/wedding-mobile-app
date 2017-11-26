@@ -40,4 +40,8 @@
         <variable name="SENDER_ID" value="1067383555643" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="~2.0.2" />
+    <plugin name="cordova-plugin-camera" spec="~2.4.0" />
+    <plugin name="cordova-plugin-file" spec="~4.3.2" />
+    <plugin name="cordova-plugin-file-transfer" spec="~1.6.2" />
+    <plugin name="cordova-plugin-filepath" spec="~1.0.2" />
 </widget>
